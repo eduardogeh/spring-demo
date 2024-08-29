@@ -1,0 +1,45 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_DB: demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
+    restart: always
+
+  spring-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: spring-app-container
+    depends_on:
+      - postgres
+    volumes:
+      - ./target:/app/target
+    restart: always
+    ports:
+      - "8080:8080"
+    command:
+      [
+        "java",
+        "-jar",
+        "target/demo-0.0.1-SNAPSHOT.jar"
+      ]
+  nginx:
+    image: nginx:latest
+    container_name: nginx-container
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./ngnix.conf:/etc/nginx/default.conf
+      - ./ngnix.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - spring-app
+volumes:
+  postgres-data:
+    external: false

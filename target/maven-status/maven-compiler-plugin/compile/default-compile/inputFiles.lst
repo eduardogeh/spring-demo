@@ -1,0 +1,17 @@
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/login/LoginDto.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/security/AuthenticationService.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/DemoApplication.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/security/SecurityFilter.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/security/TokenService.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/usuario/RoleEnum.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/usuario/UsuarioController.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/usuario/UsuarioRepository.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/model/Usuario.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/security/CorsConfiguration.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/usuario/UsuarioDto.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/usuario/UsuarioCommand.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/login/ResgisterDto.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/security/SecurityConfiguration.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/usuario/UsuarioServico.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/login/AuthenticationController.java
+/home/eduardo/projects/demo/src/main/java/com/app/demo/utils/login/LoginResponseDto.java
