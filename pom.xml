@@ -17,6 +17,7 @@
 		<liquibase.version>4.24.0</liquibase.version>
 		<java.version>17</java.version>
 		<spring.version>2.7.12</spring.version>
+		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 	</properties>
 	<dependencies>
 		<dependency>

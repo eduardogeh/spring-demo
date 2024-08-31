@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="eduardo (generated)" id="1725041438047-1">
+        <createTable tableName="usuario">
+            <column autoIncrement="true" name="id_usuario" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="usuarioPK"/>
+            </column>
+            <column name="email" type="text"/>
+            <column name="role" type="text"/>
+            <column name="senha" type="text"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
