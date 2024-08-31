@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -57,7 +58,7 @@ public class MonitoramentoService {
     }
 
     public List<RelatorioDto> getRelatorio(FiltrosCommand command) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd");
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd");
         String diasAnterioresBuscar = buscarPeriodo(command.getPeriodo());
         if(diasAnterioresBuscar==null)return null;
         List<Status> dadosJson = statusRepository.getDadosRelatorios(diasAnterioresBuscar, command.getIdPaciente());
