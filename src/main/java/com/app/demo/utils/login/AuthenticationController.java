@@ -2,7 +2,7 @@ package com.app.demo.utils.login;
 
 import com.app.demo.utils.security.TokenService;
 import com.app.demo.model.Usuario;
-import com.app.demo.usuario.UsuarioRepository;
+import com.app.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,9 +32,8 @@ public class AuthenticationController {
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
         var token = tokenService.generateToken((Usuario) auth.getPrincipal());
-        return ResponseEntity.ok(new LoginResponseDto(token));
+        return ResponseEntity.ok(new LoginResponseDto(token, ((Usuario) auth.getPrincipal()).getRole().getRole()));
     }
-
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody ResgisterDto dto){
@@ -42,7 +41,7 @@ public class AuthenticationController {
 
         String encodedPassword = new BCryptPasswordEncoder().encode(dto.senha());
 
-        Usuario novoUsuario = new Usuario(dto.email(), encodedPassword, dto.role());
+        Usuario novoUsuario = new Usuario(dto.email(), encodedPassword, dto.role(), dto.nome());
 
         usuarioRepository.save(novoUsuario);
 

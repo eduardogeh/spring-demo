@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="eduardo (generated)" id="1725094323332-1">
+        <addUniqueConstraint columnNames="codigo_convite" constraintName="paciente_monitoramento_unico_codigo_convite" tableName="paciente_monitoramento"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-2">
+        <addUniqueConstraint columnNames="id_paciente, id_monitor" constraintName="paciente_monitoramento_unico_id_paciente_id_monitor" tableName="paciente_monitoramento"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-3">
+        <addUniqueConstraint columnNames="id_paciente, data_recebimento" constraintName="status_unico_id_paciente_data_recebimento" tableName="status"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-4">
+        <addUniqueConstraint columnNames="email" constraintName="usuario_unico_email" tableName="usuario"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-5">
+        <createIndex indexName="paciente_monitoramento_data_inicio_monitoramento_idx" tableName="paciente_monitoramento">
+            <column name="data_inicio_monitoramento"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-6">
+        <createIndex indexName="paciente_monitoramento_id_monitor_idx" tableName="paciente_monitoramento">
+            <column name="id_monitor"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-7">
+        <createIndex indexName="paciente_monitoramento_id_paciente_idx" tableName="paciente_monitoramento">
+            <column name="id_paciente"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-8">
+        <createIndex indexName="status_data_recebimento_idx" tableName="status">
+            <column name="data_recebimento"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725094323332-9">
+        <createIndex indexName="status_id_paciente_idx" tableName="status">
+            <column name="id_paciente"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

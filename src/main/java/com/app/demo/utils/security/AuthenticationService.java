@@ -1,6 +1,6 @@
 package com.app.demo.utils.security;
 
-import com.app.demo.usuario.UsuarioRepository;
+import com.app.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -31,14 +31,9 @@ public class SecurityConfiguration {
                         .antMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .antMatchers(HttpMethod.POST, "/auth/register").hasRole("ADMIN")
                         .antMatchers(HttpMethod.POST, "/usuario").hasRole("ADMIN")
+                        .antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
                         .anyRequest().permitAll()
                 )
-                .requestMatchers(request ->
-                        request.antMatchers(
-                                "/actuator/**",
-                                "/swagger-ui/**",
-                                "/swagger-ui.html",
-                                "/webjars/**"))
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
 

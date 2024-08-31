@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="eduardo (generated)" id="1725088429381-1">
+        <createTable tableName="dispositivo">
+            <column autoIncrement="true" name="id_dispositivo" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="dispositivoPK"/>
+            </column>
+            <column name="id_paciente" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-2">
+        <createTable tableName="paciente_monitoramento">
+            <column autoIncrement="true" name="id_paciente_monitoramento" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="paciente_monitoramentoPK"/>
+            </column>
+            <column name="codigo_convite" type="text"/>
+            <column name="data_inicio_monitoramento" type="timestamp"/>
+            <column name="id_monitor" type="INTEGER"/>
+            <column name="id_paciente" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-3">
+        <createTable tableName="status">
+            <column autoIncrement="true" name="id_status" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="statusPK"/>
+            </column>
+            <column name="dados_json" type="text"/>
+            <column name="data_recebimento" type="timestamp"/>
+            <column name="id_paciente" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-4">
+        <addColumn tableName="usuario">
+            <column name="cpf" type="text"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-5">
+        <addColumn tableName="usuario">
+            <column name="nome" type="text"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-6">
+        <addForeignKeyConstraint baseColumnNames="id_paciente" baseTableName="paciente_monitoramento" constraintName="FK3amso1mjn8e3h7015ku6ep8r8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id_usuario" referencedTableName="usuario" validate="true"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-7">
+        <addForeignKeyConstraint baseColumnNames="id_paciente" baseTableName="dispositivo" constraintName="FK5b6ewbpsi42pgjp4vxh0r9bsb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id_usuario" referencedTableName="usuario" validate="true"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-8">
+        <addForeignKeyConstraint baseColumnNames="id_monitor" baseTableName="paciente_monitoramento" constraintName="FKbgwvx5w2wfil2wbm5s3fiu527" deferrable="false" initiallyDeferred="false" referencedColumnNames="id_usuario" referencedTableName="usuario" validate="true"/>
+    </changeSet>
+    <changeSet author="eduardo (generated)" id="1725088429381-9">
+        <addForeignKeyConstraint baseColumnNames="id_paciente" baseTableName="status" constraintName="FKj0n8x158ex4ekkd38abyhp188" deferrable="false" initiallyDeferred="false" referencedColumnNames="id_usuario" referencedTableName="usuario" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
